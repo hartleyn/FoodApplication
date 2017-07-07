@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  prep_time: 1
+  instructions: MyText
+  upvotes: 1
+  downvotes: 1
+
+two:
+  name: MyString
+  prep_time: 1
+  instructions: MyText
+  upvotes: 1
+  downvotes: 1

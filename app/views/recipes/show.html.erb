@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h1><%= @recipe.name %></h1>
+</p>
+
+<p>
+  <strong>Prep time</strong> (in minutes)<strong>:</strong>
+  <%= @recipe.prep_time %>
+</p>
+
+<p>
+  <strong>Instructions:</strong>
+  <%= @recipe.instructions %>
+</p>
+
+<p>
+  <strong>Upvotes:</strong>
+  <%= @recipe.upvotes %>
+</p>
+
+<p>
+  <strong>Downvotes:</strong>
+  <%= @recipe.downvotes %>
+</p>
+
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back', recipes_path %>
