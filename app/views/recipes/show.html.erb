@@ -14,14 +14,18 @@
   <%= @recipe.instructions %>
 </p>
 
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient.name %></li>
+  <% end %>
+</ul>
+
 <p>
-  <strong>Upvotes:</strong>
-  <%= @recipe.upvotes %>
+  <%= image_tag("upvote.jpg", style: "height: 10px; width: 10px;") %> <%= @recipe.upvotes %>
 </p>
 
 <p>
-  <strong>Downvotes:</strong>
-  <%= @recipe.downvotes %>
+  <%= link_to 'like', upvote_recipe_url(@recipe.id), method: :put %>
 </p>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |

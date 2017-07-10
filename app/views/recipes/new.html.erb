@@ -1,16 +1,32 @@
-<h1>New Recipe</h1>
 
-	
-	
-		<%= bootstrap_form_for(@recipe) do |f| %>
+	<div class="row">
+		<div class="col-sm-4">
 
-				<%= f.text_field :name %>
-				<%= f.text_field :prep_time, label: "Prep Time (in minutes)" %>
-				<%= f.text_area :instructions %>
-				<%= f.submit %>
+			<h1>New Recipe</h1>
 
-		<% end %>
+							<%= bootstrap_form_for(@recipe) do |f| %>
 
-	
+									<%= f.text_field :name %>
+									<%= f.text_field :prep_time, label: "Prep Time (in minutes)" %>
+									<%= f.text_area :instructions %>
 
-<%= link_to 'Back', recipes_path %>
+									<div class="field">
+										<% Ingredient.all.each do |ingredient| %>
+											<%= check_box_tag "recipe[ingredient_ids][]", ingredient.id, f.object.ingredients.include?(ingredient) %>
+											<%= ingredient.name %><br>	
+										<% end %>
+									</div>
+
+
+
+									<%= f.submit %>
+
+							<% end %>
+						
+
+			<%= link_to 'Back', recipes_path %>
+
+		</div>
+		<div class="col-sm-8"></div>
+	</div>
+

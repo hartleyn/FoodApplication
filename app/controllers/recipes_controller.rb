@@ -61,6 +61,11 @@ class RecipesController < ApplicationController
     end
   end
 
+  def upvote
+    Recipe.increment_counter(:upvotes, params[:id])
+    redirect_to recipe_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_recipe
@@ -69,6 +74,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:name, :prep_time, :instructions, :upvotes, :downvotes)
+      params.require(:recipe).permit(:name, :prep_time, :instructions, :upvotes, :downvotes, ingredient_ids: [])
     end
 end
